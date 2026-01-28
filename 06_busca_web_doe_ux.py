@@ -158,3 +158,16 @@ if botao_pesquisar:
 
         except Exception as e:
             st.error(f"Erro crítico no sistema: {e}")
+            
+            # --- RODAPÉ DA BARRA LATERAL ---
+with st.sidebar:
+    st.markdown("---") # Cria uma linha divisória visual
+    st.markdown(
+        """
+        <div style='text-align: center; font-size: 12px; color: gray;'>
+            Desenvolvido por <b>Luiz Saboia</b> 🚀<br>
+            <i>Versão 1.0</i>
+        </div>
+        """,
+        unsafe_allow_html=True # Permite usar HTML para centralizar e diminuir a letra
+    )
