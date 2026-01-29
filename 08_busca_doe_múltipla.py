@@ -135,7 +135,6 @@ with st.container():
     with col_d2:
         data_fim = st.date_input("📅 Data Final", format="DD/MM/YYYY")
 
-    # --- AQUI ESTÁ A ÚNICA MUDANÇA ---
     termo_1 = st.text_input("🔍 Termo Principal (Obrigatório)", placeholder="Ex: Licitação")
     
     # --- ÁREA AVANÇADA ---
@@ -242,7 +241,9 @@ if botao_pesquisar:
                                                 linha_pintada = realcar_termo(linha_pintada, termo_2, ignorar_acentos)
                                             texto_md += f"{linha_pintada}  \n"
                                         st.markdown(texto_md, unsafe_allow_html=True)
-                                        st.link_button(f"Abrir PDF", url)
+                                        # --- AQUI ESTÁ A MUDANÇA ---
+                                        # Adicionamos #page={num_pag + 1} ao final da URL
+                                        st.link_button(f"Abrir PDF", f"{url}#page={num_pag + 1}")
                 except:
                     pass
                 parte += 1
